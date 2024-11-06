@@ -1,0 +1,89 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    background-color: lightblue;
+    color: white;
+    padding: 10px 20px;
+
+}
+
+h1{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.tarea{
+    padding: 10px;
+    margin: 20px;
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.creador{
+    padding: 10px;
+    margin: 20px;
+    border: 2px;
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: lightblue;
+}
+
+.barra{
+    background-color: white;
+    color:black;
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    padding: 10px;
+}
+
+.subtitulo {
+    padding: 10px;
+    display: flex1;
+    text-align: center;
+    gap: 10px;
+}
+
+.boton{
+    background-color:lightblue;
+    color:white;
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    padding: 10px;       
+    cursor: pointer;     
+}
+
+.boton:hover{
+    background-color: black;
+}
+
+.par{
+    color: blue;
+}
+
+.impar{
+    color: red;
+}
+
+.par:hover{
+    color: pink;
+}
+
+.impar:hover{
+    color: purple;
+}
+
+ol li:hover {
+    cursor: pointer;
+}

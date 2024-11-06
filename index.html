@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lista tareas</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="lista.js">
+</head>
+<body>
+    <header>
+        <h1>LISTA DE TAREAS</h1>
+    </header>
+    <div class="subtitulo">
+        <input type="text" placeholder="Agregar tarea" class="barra"
+         id="input-tarea">
+        <button id="agregado" type="submit" class="boton">Agregar</button> 
+    </div>
+    <div class="tarea">
+        <ol class="lista-tareas" id="lista-tareas">
+          
+        </ol>
+    
+     <h2 class="subtitulo">Tareas completadas</h2>
+    
+        <ul class="lista-tareas" id="tareas-completadas">
+
+        </ul>
+    </div>
+    <div class="creador">
+        <p>Nota: Hacer click sobre las tareas que esten completadas</p>
+        <h3 style="color: white;">Información del creador</h3>
+        <p>Nombre: Guadalupe Saraí Jáquez Aguilar</p>
+    </div>
+    
+    <script>
+        const botonAgregar = document.getElementById("agregado");
+        const inputTarea = document.getElementById("input-tarea");
+        /* */
+        const listaTareas = document.getElementById("lista-tareas");
+        const listaTareasCompletadas = document.getElementById("tareas-completadas");
+        /* */
+
+        
+        let contador = 1;
+        botonAgregar.addEventListener("click", () => {
+        const tarea = inputTarea.value;
+        const listaTareas = document.querySelector(".lista-tareas");
+        
+
+        if (tarea.trim() !== "") { 
+            const nuevaTarea = document.createElement("li");
+            nuevaTarea.textContent = tarea;
+            if(contador % 2 == 0){
+                nuevaTarea.classList.add("par")
+        
+            }else{
+                nuevaTarea.classList.add("impar")
+            }
+            /* */
+            nuevaTarea.addEventListener("click", () =>{
+                nuevaTarea.classList.toggle("selected")
+                listaTareasCompletadas.appendChild(nuevaTarea);
+            });
+            /**/
+
+            listaTareas.appendChild(nuevaTarea);
+            inputTarea.value = ""; 
+        } else {
+
+    }
+        contador += 1;
+    });
+
+    /* */
+    function CompleteTask (){
+        let tasklist = document.getElementById('lista-tareas');
+        let tasks = listaTareas.getElementsByTagName('li');
+        let completetask = document.getElementById('tareas-completadas');
+
+        for (let i = tasks.length -1; i >= 0; i--){
+            let checkbox = tasks[i].getElementsByTagName("input")[0];
+            let task = tasks[i];
+            if (checkbox.checked){
+                completetask.appendChild(tasks[i]);
+                checkbox.disabled = true;
+            }
+        }
+    }
+    
+    document.addEventListener("click", (event) => {
+        if(event.target && event.target.tagName === "LI"){
+            event.target.classList.toggle("selected");
+        }
+    });
+   /* */
+    </script>
+    
+</body>
+</html>
